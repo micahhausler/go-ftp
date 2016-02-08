@@ -34,6 +34,76 @@ func stripDirectory(remoteName string) string {
 	return filename
 }
 
+// FtpCommands returns a map of FTP commands with the keys being all known FTP
+// commands and the values stating if the command is implemented
+// https://en.wikipedia.org/wiki/List_of_FTP_commands
+func FtpCommands() map[string]bool {
+	cmds := map[string]bool{
+		"ABOR": true,
+		"ACCT": false,
+		"ADAT": false,
+		"ALLO": false,
+		"APPE": false,
+		"AUTH": true,
+		"CCC":  false,
+		"CDUP": true,
+		"CONF": false,
+		"CWD":  true,
+		"DELE": true,
+		"ENC":  false,
+		"EPRT": false,
+		"EPSV": false,
+		"FEAT": true,
+		"HELP": false,
+		"LANG": false,
+		"LIST": false,
+		"LPRT": false,
+		"LPSV": false,
+		"MDTM": false,
+		"MIC":  false,
+		"MKD":  true,
+		"MLSD": false,
+		"MLST": false,
+		"MODE": false,
+		"NLST": true,
+		"NOOP": true,
+		"OPTS": true,
+		"PASS": true,
+		"PASV": true,
+		"PBSZ": false,
+		"PORT": true,
+		"PROT": false,
+		"PWD":  true,
+		"QUIT": true,
+		"REIN": true,
+		"REST": true,
+		"RETR": false,
+		"RMD":  true,
+		"RNFR": false,
+		"RNTO": false,
+		"SITE": false,
+		"SIZE": true,
+		"SMNT": false,
+		"STAT": true,
+		"STOR": true,
+		"STOU": false,
+		"STRU": false,
+		"SYST": true,
+		"TYPE": true,
+		"USER": true,
+		"XCUP": false,
+		"XMKD": false,
+		"XMKD": false,
+		"XPWD": false,
+		"XRCP": false,
+		"XRMD": false,
+		"XRSQ": false,
+		"XSEM": false,
+		"XSEN": false,
+	}
+	return cmds
+}
+
 func parseCommand(input string) (string, string, error) {
 	// Split out command and arguments
 	var command, args string
